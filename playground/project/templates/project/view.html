@@ -1,0 +1,31 @@
+{% extends 'project/index.html' %}
+
+{% block chars %}
+<h1>Robots</h1>
+<div class="card-group">
+{% for character in characters %}
+<div class="card" style="width: 18rem;">
+    <div class="card-body" style="background-color: #000000;">
+    <h2 class="card-title"><a href="{% url 'detail' pk=character.pk %}">{{ character.id_character}}</a></h2>
+    <li>Etat : {{ character.etat}}</li>
+    <li>Type : {{ character.type}}</li>
+    <li>Equipe : {{ character.team}}</li>
+    <li>Lieu : {{ character.lieu}}</li>
+    </div>
+</div>
+{% endfor %}
+</div>
+{% endblock %} {% block equips %}
+
+<h1>Equipements</h1>
+<div class="card-group"></div>
+{% for equipement in equipements %}
+<div class="card" style="width: 18rem;">
+    <div class="card-body" style="background-color: #000000;">
+    <h2 class="card-title"><a href="{% url 'detail' pk=equipement.pk %}">{{ equipement.id_equip}}</a></h2>
+    <li>Disponible : {{ equipement.disponibilite}}</li>
+    </div>
+</div>
+{% endfor %}
+</div>
+{% endblock %}

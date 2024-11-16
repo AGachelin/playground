@@ -1,0 +1,12 @@
+{% load static %}
+
+{% block content %}        
+<link rel="stylesheet" href="{% static 'css/project.css' %}" />
+    <div style="background-color: #000000;">
+        <h2>{{ character.id_character}}</h2>
+        <li>{{ character.etat}}</li>
+        <li>{{ character.type}}</li>
+        <li>{{ character.team}}</li>
+        <li>{{ character.lieu}}</li>
+    </div>
+{% endblock %}

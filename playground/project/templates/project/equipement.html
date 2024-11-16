@@ -1,0 +1,10 @@
+{% load static %}
+
+{% block content %}        
+<link rel="stylesheet" href="{% static 'css/project.css' %}" />
+    <div style="background-color: #000000;"">
+        <h2>{{ equipement.id_equip}}</h2>
+        <li>{{ equipement.disponibilite}}</li>
+        <li>{{ equipement.text|linebreaksbr }}</li>
+    </div>
+{% endblock %}
