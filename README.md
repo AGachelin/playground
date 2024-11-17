@@ -1,3 +1,3 @@
 Ce dépôt contient deux mini projets web effectués dans le cadre d'une unité d'enseignement.  
 Le dossier "blog" contient un site ayant permis la prise en main de django exécuté en suivant un tutoriel basé sur celui de Django Girls, retrouvable ici : https://tutorial.djangogirls.org/en/.  
-Le dossier "playground" contient un site un peu plus poussé ayant permis l'apprentissage des bases de la gestion de forms et de bases de donnée avec django.
+Le dossier "playground" contient un site un peu plus poussé ayant permis l'apprentissage des bases de la gestion de forms avec django.
