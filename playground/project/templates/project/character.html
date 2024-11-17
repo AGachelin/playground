@@ -1,12 +1,17 @@
 {% load static %}
-
-{% block content %}        
 <link rel="stylesheet" href="{% static 'css/project.css' %}" />
-    <div style="background-color: #000000;">
-        <h2>{{ character.id_character}}</h2>
-        <li>{{ character.etat}}</li>
-        <li>{{ character.type}}</li>
-        <li>{{ character.team}}</li>
-        <li>{{ character.lieu}}</li>
-    </div>
+<body style="background-color: #000000;">
+{% block content %}
+<h1>{{ character.id_character }}</h1>
+<form method="POST" class="post-form">{% csrf_token %}
+    <b> Change : </b> {{ form.as_ul }}
+    <button type="submit" class="btn btn-outline-light">OK</button>
+    <a href="{% url 'view' %}">Back</a>
+</form>
+{% if message != ''%}
+<div class="alert alert-danger" role="alert" style="color: white;">
+    {{message}}
+</div>
+{% endif %}
 {% endblock %}
+</body>

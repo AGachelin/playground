@@ -1,10 +1,28 @@
 {% load static %}
-
-{% block content %}        
 <link rel="stylesheet" href="{% static 'css/project.css' %}" />
-    <div style="background-color: #000000;"">
+<body style="background-color: #000000;">
+{% block content %}
+    <div>
         <h2>{{ equipement.id_equip}}</h2>
-        <li>{{ equipement.disponibilite}}</li>
-        <li>{{ equipement.text|linebreaksbr }}</li>
+        {% if equipement.disponibilite == 'libre'%}
+        <li>Can be used.</li>
+        {%else%}
+        <li>Cannot be used.</li>
+        {% endif %}
     </div>
 {% endblock %}
+{% block chars %}
+<h3>Robots in the {{ equipement.id_equip}}:</h3>
+{% for character in characters %}
+<div class="card" style="width: 18rem;">
+    <div class="card-body" style="background-color: #000000;">
+    <h3 class="card-title"><a href="{% url 'detail' pk=character.id_character %}">{{ character.id_character}}</a></h3>
+    <li>State : {{ character.etat}}</li>
+    <li>Weight class : {{ character.type}}</li>
+    <li>Team : {{ character.team}}</li>
+    <li>Location : {{ character.lieu}}</li>
+    </div>
+</div>
+{% endfor %}
+{% endblock %}
+</body>
