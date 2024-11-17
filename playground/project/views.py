@@ -44,8 +44,14 @@ def detail(request, pk):
             )
     except Exception:
         equip = get_object_or_404(Equipement, pk=pk)
-        Characters = Character.objects.filter(lieu_id=equip.id_equip).order_by("id_character")
-        return render(request, "project/equipement.html", {"equipement": equip, "characters":Characters})
+        Characters = Character.objects.filter(lieu_id=equip.id_equip).order_by(
+            "id_character"
+        )
+        return render(
+            request,
+            "project/equipement.html",
+            {"equipement": equip, "characters": Characters},
+        )
 
 
 def move(form, character):
@@ -63,7 +69,9 @@ def move(form, character):
             case "Charging station":
                 if character.etat != "Discharged":
                     if character.etat == "Damaged":
-                        return "Ce robot doit être réparé avant de pouvoir être rechargé."
+                        return (
+                            "Ce robot doit être réparé avant de pouvoir être rechargé."
+                        )
                     return "Ce robot n'a pas besoin d'être chargé."
                 if nouveau_lieu.disponibilite != "libre":
                     return "La station de chargement est occupée."

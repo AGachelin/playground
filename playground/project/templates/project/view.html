@@ -6,7 +6,7 @@
 {% for character in characters %}
 <div class="card" style="width: 18rem;">
     <div class="card-body" style="background-color: #000000;">
-    <h2 class="card-title"><a href="{% url 'detail' pk=character.id_character %}">{{ character.id_character}}</a></h2>
+    <h2 class="card-title"><a class="link" href="{% url 'detail' pk=character.id_character %}">{{ character.id_character}}</a></h2>
     <li>State : {{ character.etat}}</li>
     <li>Weight class : {{ character.type}}</li>
     <li>Team : {{ character.team}}</li>
@@ -22,7 +22,7 @@
 {% for equipement in equipements %}
 <div class="card" style="width: 18rem;">
     <div class="card-body" style="background-color: #000000;">
-    <h2 class="card-title"><a href="{% url 'detail' pk=equipement.id_equip %}">{{ equipement.id_equip}}</a></h2>
+    <h2 class="card-title"><a class="link" href="{% url 'detail' pk=equipement.id_equip %}">{{ equipement.id_equip}}</a></h2>
     {% if equipement.disponibilite == 'libre'%}
     <li>Can be used.</li>
     {%else%}
